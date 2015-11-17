@@ -6,6 +6,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
 
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/userauth';
 var mongoose = require('mongoose');
@@ -24,6 +25,7 @@ app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
+app.use(cookieParser())
 app.use(express.static('public'));
 
 // ROUTES

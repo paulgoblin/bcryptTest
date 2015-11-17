@@ -6,29 +6,32 @@ html(lang="en")
     link(href="css/style.css" rel="stylesheet")
   body
     .container
+      button.btn#logout Logout
       br
       .jumbotron
-        .form-group
-          h3 Register
-          label.sr-only(for="username") Username:
-          input.form-control#username(type="text" placeholder='username')
-          label.sr-only(for="password") Password:
-          input.form-control#password(type="password" placeholder='password')
-          label.sr-only(for="username") Confirm password:
-          input.form-control#confirm(type="password" placeholder='confirm')
-          button.btn#register Register
-          .hud#reg
-            p
-        .form-group
-          h3 Login
-          label.sr-only(for="username") Username:
-          input.form-control#loginName(type="text" placeholder='username')
-          label.sr-only(for="username") Password:
-          input.form-control#loginPword(type="password" placeholder='password')
-          button.btn#login Login
-          .hud#log
-            p
+        .form
+          .form-group
+            h3 Register
+            label.sr-only(for="username") Username:
+            input.form-control#username(type="text" placeholder='username')
+            label.sr-only(for="password") Password:
+            input.form-control#password(type="password" placeholder='password')
+            label.sr-only(for="username") Confirm password:
+            input.form-control#confirm(type="password" placeholder='confirm')
+            button.btn#register Register
+            .hud#reg
+              p
+          .form-group
+            h3 Login
+            label.sr-only(for="username") Username:
+            input.form-control#loginName(type="text" placeholder='username')
+            label.sr-only(for="username") Password:
+            input.form-control#loginPword(type="password" placeholder='password')
+            button.btn#login Login
+            .hud#log
+              p
 
     script(src='bower_components/jquery/dist/jquery.min.js')
     //- script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(src='js/main.js')
+    script(src='js/logout.js')
