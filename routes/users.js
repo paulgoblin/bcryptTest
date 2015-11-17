@@ -26,4 +26,20 @@ router.post('/logout', function(req, res){
   res.send();
 })
 
+router.post('/bio', function(req, res){
+  User.findOne({'_id': req.cookies.userId}, function(err,user){
+    if (err) return res.send(err);
+    console.log('bio post req body: ',req.body.bio),
+    user.bio = req.body.bio;
+    user.save(function(err){
+      res.status(err ? 400 : 200).send(err || 'bio saved!');
+    })
+  })
+})
+
 module.exports = router;
+
+
+
+
+
