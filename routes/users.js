@@ -37,6 +37,17 @@ router.post('/bio', function(req, res){
   })
 })
 
+router.post('/profPic', function(req, res){
+  User.findOne({'_id': req.cookies.userId}, function(err,user){
+    if (err) return res.send(err);
+    console.log('bio post req body: ',req.body.url),
+    user.avatar = req.body.url;
+    user.save(function(err){
+      res.status(err ? 400 : 200).send(err || 'bio saved!');
+    })
+  })
+})
+
 module.exports = router;
 
 
