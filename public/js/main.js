@@ -1,6 +1,5 @@
 'use strict';
 
-
 function init() {
   $('#register').click(registerUser);
   $('#login').click(loginUser);
@@ -21,6 +20,7 @@ function hudLog(message){
 }
 
 function registerUser(){
+
   let uname = $('#username').val();
   let pword = $('#password').val();
   let conf = $('#confirm').val();
@@ -36,10 +36,12 @@ function registerUser(){
     data: {username: uname, password:pword}
   }).done( function( data ){
     console.log(data)
-    hudReg( `Account for ${data.username} created` );
+    hudReg( `Account for ${data.username} created.` );
   }).fail( function( err ){
     hudReg('Error creating account')
   })
+
+  clearForm($('.register'))
 
 }
 
@@ -54,10 +56,20 @@ function loginUser(){
   }).done( function( data ){
     console.log(data)
     hudLog( `${data.username} is now logged in` );
+    window.location.replace('/home');
   }).fail( function( err ){
     hudLog('Error logging in')
   })
 
+  clearForm($('.login'))
+
+}
+ 
+function clearForm($form){
+  let $inputs = $form.children('input');
+  for(let i = 0; i < $inputs.length; i ++) {
+    $($inputs[i]).val('');
+  }
 }
 
 

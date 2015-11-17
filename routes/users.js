@@ -3,6 +3,7 @@
 var router = require('express').Router();
 var User = require('../models/User');
 
+var authMiddleWare = require('../config/auth');
 
 
 router.post('/register', function(req,res){
@@ -14,7 +15,8 @@ router.post('/register', function(req,res){
 
 router.post('/login', function(req, res){
   User.authenticate(req.body, function(err, user){
-    res.cookie( 'userId', JSON.stringify(user._id ));
+    // console.log('uesrId: ', JSON.stringify(user._id))
+    res.cookie( 'userId', user._id);
     res.status(err ? 400 : 200).send(err || user)
   })
 })

@@ -8,8 +8,18 @@ var User;
 
 var userSchema = Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  bio: { type: String},
+  avatar: { type: String},
+  friends: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+
 })
+
+// userSchema.method.getUserInfo = function (userId, cb){
+//   console.log(userId);
+//   err = null;
+//   cb(err,'you got it boss');
+// }
 
 userSchema.statics.register = function (user,cb){
   var username = user.username;
@@ -20,6 +30,7 @@ userSchema.statics.register = function (user,cb){
       bcrypt.hash(password, salt, function(err2, hash) {
         if (err1 || err2) return cb(err1 || err2);
         var newUser = new User();
+        console.log('get u info function:', newUser.getUserInfo)
         newUser.username = username;
         newUser.password = hash;
         newUser.save(function(err, savedUser){
@@ -48,7 +59,6 @@ userSchema.statics.authenticate = function(inputUser,cb){
 
 
 User = mongoose.model('User', userSchema);
-
 module.exports = User;
 
 

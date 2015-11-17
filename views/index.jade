@@ -1,16 +1,13 @@
 doctype html
 html(lang="en")
-  head
-    title Go ahead and login
-    link(href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
-    link(href="css/style.css" rel="stylesheet")
+  include ./includes/head.jade
+  link(href="css/main.css" rel="stylesheet")
   body
     .container
-      button.btn#logout Logout
-      br
+      include ./includes/header.jade
       .jumbotron
         .form
-          .form-group
+          .form-group.register
             h3 Register
             label.sr-only(for="username") Username:
             input.form-control#username(type="text" placeholder='username')
@@ -21,7 +18,7 @@ html(lang="en")
             button.btn#register Register
             .hud#reg
               p
-          .form-group
+          .form-group.login
             h3 Login
             label.sr-only(for="username") Username:
             input.form-control#loginName(type="text" placeholder='username')
@@ -31,7 +28,5 @@ html(lang="en")
             .hud#log
               p
 
-    script(src='bower_components/jquery/dist/jquery.min.js')
-    //- script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+    include ./includes/scripts.jade
     script(src='js/main.js')
-    script(src='js/logout.js')

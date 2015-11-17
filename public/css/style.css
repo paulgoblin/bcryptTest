@@ -1,27 +1,12 @@
-body {
-  background-color: white;
+.header {
+  padding: 1em;
 }
 
-.hud p{
-  font-size: 14px;
-  padding:.5em;
-  display: none;
+#logout {
+  float:right;
 }
 
-.hud {
-  height: 2em;
-  text-align: center;
-}
-
-.form-group {
-  max-width: 330px;
-  padding: 15px;
+h1 {
   display: inline-block;
-  vertical-align: top; 
-  text-align: left; 
-}
-
-.form {
-  margin: 0 auto;
-  text-align: center;
+  margin: 0em;
 }
