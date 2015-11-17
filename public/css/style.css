@@ -1,0 +1,19 @@
+body {
+  background-color: white;
+}
+
+.hud p{
+  font-size: 14px;
+  padding:.5em;
+  display: none;
+}
+
+.hud {
+  height: 2em;
+  text-align: center;}
+
+.form-group {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
